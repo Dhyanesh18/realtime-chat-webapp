@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import backgroundImage from "../assets/images.jpg";
+import backgroundImage from "../assets/image.jpg";
 
 const Homepage = () => {
     return (
