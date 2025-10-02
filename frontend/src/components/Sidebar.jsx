@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useChatStore } from "../store/useChatStore";
+import { useAuthStore } from "../store/useAuthStore";
 import SidebarSkeleton from "./SidebarSkeletion"
 import { Users } from "lucide-react";
 
 const Sidebar = () => {
     const { getUsers, users, selectedUser, setSelectedUser, isUsersLoading } = useChatStore();
     
-    const onlineUsers = [];
+    const { onlineUsers } = useAuthStore();
 
     useEffect(() => {
         getUsers()
@@ -50,8 +51,10 @@ const Sidebar = () => {
                         {/* User info - only visible on larger screens */}
                         <div className="hidden lg:block text-left min-w-0">
                         <div className="font-medium truncate">{user.fullName}</div>
-                        <div className="text-sm text-zinc-400">
-                            {onlineUsers.includes(user._id) ? "Online" : "Offline"}
+                        <div >
+                            {
+                                (onlineUsers?.includes(user._id)) ? <p className="text-sl text-green-400">Online</p> : <p className="text-sl text-zinc-400">Offline</p>
+                            }
                         </div>
                         </div>
                     </button>

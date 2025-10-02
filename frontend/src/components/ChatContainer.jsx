@@ -7,14 +7,16 @@ import MessageSkeleton from "./MessageSkeleton";
 import { formatMessageTime } from "../lib/utils";
 
 const ChatContainer = () => {    
-    const { messages, getMessages, isMessagesLoading, selectedUser } = useChatStore()
+    const { messages, getMessages, isMessagesLoading, selectedUser, subscribeToMessages, unsubscribeFromMessages } = useChatStore()
     const { authUser } = useAuthStore();
     const messageEndRef = useRef(null);
 
 
     useEffect(() => {
-        getMessages(selectedUser._id)
-    },[selectedUser._id, getMessages])
+        getMessages(selectedUser._id);
+        subscribeToMessages();
+        return () => unsubscribeFromMessages();
+    },[selectedUser._id, getMessages, subscribeToMessages, unsubscribeFromMessages])
 
     if(isMessagesLoading) return (
         <div className="flex flex-1 flex-col overflow-auto">
