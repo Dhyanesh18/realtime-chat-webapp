@@ -97,7 +97,11 @@ const ProfilePage = () => {
                             <div className="space-y-3 text-sm">
                                 <div className="flex items-center justify-between py-2 border-b border-white">
                                     <span>Member Since</span>
-                                    <span>{format(new Date(authUser.createdAt), 'MMMM d, yyyy')}</span>
+                                    <span>
+                                    {authUser?.createdAt
+                                        ? format(new Date(authUser.createdAt.$date || authUser.createdAt), "MMMM d, yyyy")
+                                        : "N/A"}
+                                    </span>
                                 </div>
                                 <div className="flex items-center justify-between py-2">
                                     <span>Account Status</span>
