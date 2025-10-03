@@ -1,0 +1,21 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "Whispyr is a real-time chat application built with the **MERN stack**, **Zustand**, **DaisyUI**, **Tailwind CSS**, **Toast**, **Socket.IO**, and **Vite**.  \r It supports instant messaging with authentication, media upload via Cloudinary, and a clean, responsive interface.",
+  "main": "index.js",
+  "scripts": {
+    "build":"npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend ",
+    "start":"npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhyanesh18/realtime-chat-webapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dhyanesh18/realtime-chat-webapp/issues"
+  },
+  "homepage": "https://github.com/Dhyanesh18/realtime-chat-webapp#readme"
+}
